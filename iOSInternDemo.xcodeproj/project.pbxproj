@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66374FA222A69785003F43F0 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FA122A69785003F43F0 /* MyTableViewController.m */; };
 		7BC137FE229B893D00C927D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC137FD229B893D00C927D5 /* AppDelegate.m */; };
 		7BC13801229B893D00C927D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC13800229B893D00C927D5 /* ViewController.m */; };
 		7BC13804229B893D00C927D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC13802229B893D00C927D5 /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		66374FA022A69785003F43F0 /* MyTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
+		66374FA122A69785003F43F0 /* MyTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
 		7BC137F9229B893D00C927D5 /* iOSInternDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSInternDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC137FC229B893D00C927D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BC137FD229B893D00C927D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 				7BC137FC229B893D00C927D5 /* AppDelegate.h */,
 				7BC137FD229B893D00C927D5 /* AppDelegate.m */,
 				7BC137FF229B893D00C927D5 /* ViewController.h */,
+				66374FA022A69785003F43F0 /* MyTableViewController.h */,
+				66374FA122A69785003F43F0 /* MyTableViewController.m */,
 				7BC13800229B893D00C927D5 /* ViewController.m */,
 				7BC13802229B893D00C927D5 /* Main.storyboard */,
 				7BC13805229B893D00C927D5 /* Assets.xcassets */,
@@ -206,6 +211,7 @@
 				7BC13801229B893D00C927D5 /* ViewController.m in Sources */,
 				7BC1380C229B893D00C927D5 /* main.m in Sources */,
 				7BC137FE229B893D00C927D5 /* AppDelegate.m in Sources */,
+				66374FA222A69785003F43F0 /* MyTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

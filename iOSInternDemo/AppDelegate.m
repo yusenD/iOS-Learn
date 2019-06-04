@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "MyTableViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -24,14 +25,10 @@
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     
     ViewController *viewController = [[ViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    viewController.tabBarItem.title = @"新闻";
     
-    navigationController.view.backgroundColor = [UIColor redColor];
-    navigationController.tabBarItem.title = @"新闻";
-    
-    UIViewController *controller2 = [[UIViewController alloc] init];
-    controller2.view.backgroundColor = [UIColor blackColor];
-    controller2.tabBarItem.title = @"视频";
+    MyTableViewController *tableViewController = [[MyTableViewController alloc] init];
+    tableViewController.tabBarItem.title = @"视频";
     
     UIViewController *controller3 = [[UIViewController alloc] init];
     controller3.view.backgroundColor = [UIColor greenColor];
@@ -42,14 +39,22 @@
     controller4.tabBarItem.title = @"我的";
 
     
-    [tabbarController setViewControllers:@[navigationController,controller2,controller3,controller4]];
+    [tabbarController setViewControllers:@[viewController,tableViewController,controller3,controller4]];
     
-    self.window.rootViewController = tabbarController;
+    tabbarController.delegate = self;
     
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
+
+    
+    self.window.rootViewController = navigationController;
     
     return YES;
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    NSLog(@"didSelectViewController");
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -139,7 +139,47 @@
 * UINavigationController管理
 * 顶部UIViewController变化，UINavigationBar则同步变化
 
+```
+
+- (void)pushController{
+    UIViewController *viewController = [[UIViewController alloc] init];
+    viewController.view.backgroundColor = [UIColor whiteColor];
+    viewController.navigationItem.title = @"内容";
+    
+    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+```
+
+
 ![](https://i.loli.net/2019/06/03/5cf4dfe36900117683.jpg)
+
+## UIWindow
+
+是一个特殊形式的View，可以想象成一个窗口容器，和ViewController一起协同工作，通常屏幕上只存在、展示一个UIWindow。
+
+* 使用storyborad会帮我们自动创建
+* 手动创建
+  * 创建UIWindow
+  * 设置rootViewController
+  * makeKeyAndVisible
+
+  
+  ![](https://i.loli.net/2019/06/04/5cf5c53f18f3461708.jpg)
+
+## UITabView
+
+* UITableViewCell
+* tableHeaderView
+* UITableView
+* tableFooterView
+
+UITableView作为视图，只负责展示，协助管理，不管理数据，需要开发者为UITableView提供所需要的数据及Cell。
+
+通过delegate的模式，开发者需要实现UITableViewDataSource
+
 
  
 
