@@ -21,7 +21,6 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     
     ViewController *viewController = [[ViewController alloc] init];
