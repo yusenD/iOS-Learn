@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		66374FA222A69785003F43F0 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FA122A69785003F43F0 /* MyTableViewController.m */; };
+		66374FA922A75DC3003F43F0 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FA722A75DC3003F43F0 /* QuizViewController.m */; };
+		66374FAA22A75DC3003F43F0 /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66374FA822A75DC3003F43F0 /* QuizViewController.xib */; };
+		66374FF222A8A8D3003F43F0 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FF022A8A8D3003F43F0 /* GameViewController.m */; };
+		66374FF322A8A8D3003F43F0 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66374FF122A8A8D3003F43F0 /* GameViewController.xib */; };
 		7BC137FE229B893D00C927D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC137FD229B893D00C927D5 /* AppDelegate.m */; };
-		7BC13801229B893D00C927D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC13800229B893D00C927D5 /* ViewController.m */; };
 		7BC13804229B893D00C927D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC13802229B893D00C927D5 /* Main.storyboard */; };
 		7BC13806229B893D00C927D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC13805229B893D00C927D5 /* Assets.xcassets */; };
 		7BC13809229B893D00C927D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC13807229B893D00C927D5 /* LaunchScreen.storyboard */; };
@@ -30,11 +33,15 @@
 /* Begin PBXFileReference section */
 		66374FA022A69785003F43F0 /* MyTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		66374FA122A69785003F43F0 /* MyTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
-		7BC137F9229B893D00C927D5 /* iOSInternDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSInternDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66374FA622A75DC3003F43F0 /* QuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
+		66374FA722A75DC3003F43F0 /* QuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizViewController.m; sourceTree = "<group>"; };
+		66374FA822A75DC3003F43F0 /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
+		66374FEF22A8A8D3003F43F0 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		66374FF022A8A8D3003F43F0 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		66374FF122A8A8D3003F43F0 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		7BC137F9229B893D00C927D5 /* 练习生.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "练习生.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC137FC229B893D00C927D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BC137FD229B893D00C927D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7BC137FF229B893D00C927D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7BC13800229B893D00C927D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7BC13803229B893D00C927D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BC13805229B893D00C927D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC13808229B893D00C927D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +70,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66374FAB22A8A1F9003F43F0 /* TablePage */ = {
+			isa = PBXGroup;
+			children = (
+				66374FA022A69785003F43F0 /* MyTableViewController.h */,
+				66374FA122A69785003F43F0 /* MyTableViewController.m */,
+			);
+			path = TablePage;
+			sourceTree = "<group>";
+		};
+		66374FAC22A8A21F003F43F0 /* GamePage */ = {
+			isa = PBXGroup;
+			children = (
+				66374FEF22A8A8D3003F43F0 /* GameViewController.h */,
+				66374FF022A8A8D3003F43F0 /* GameViewController.m */,
+				66374FF122A8A8D3003F43F0 /* GameViewController.xib */,
+			);
+			path = GamePage;
+			sourceTree = "<group>";
+		};
+		66374FEE22A8A6B7003F43F0 /* AnswerPage */ = {
+			isa = PBXGroup;
+			children = (
+				66374FA622A75DC3003F43F0 /* QuizViewController.h */,
+				66374FA722A75DC3003F43F0 /* QuizViewController.m */,
+				66374FA822A75DC3003F43F0 /* QuizViewController.xib */,
+			);
+			path = AnswerPage;
+			sourceTree = "<group>";
+		};
 		7BC137F0229B893D00C927D5 = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +111,7 @@
 		7BC137FA229B893D00C927D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BC137F9229B893D00C927D5 /* iOSInternDemo.app */,
+				7BC137F9229B893D00C927D5 /* 练习生.app */,
 				7BC13811229B893E00C927D5 /* iOSInternDemoUITests.xctest */,
 			);
 			name = Products;
@@ -84,12 +120,11 @@
 		7BC137FB229B893D00C927D5 /* iOSInternDemo */ = {
 			isa = PBXGroup;
 			children = (
+				66374FEE22A8A6B7003F43F0 /* AnswerPage */,
+				66374FAC22A8A21F003F43F0 /* GamePage */,
+				66374FAB22A8A1F9003F43F0 /* TablePage */,
 				7BC137FC229B893D00C927D5 /* AppDelegate.h */,
 				7BC137FD229B893D00C927D5 /* AppDelegate.m */,
-				7BC137FF229B893D00C927D5 /* ViewController.h */,
-				66374FA022A69785003F43F0 /* MyTableViewController.h */,
-				66374FA122A69785003F43F0 /* MyTableViewController.m */,
-				7BC13800229B893D00C927D5 /* ViewController.m */,
 				7BC13802229B893D00C927D5 /* Main.storyboard */,
 				7BC13805229B893D00C927D5 /* Assets.xcassets */,
 				7BC13807229B893D00C927D5 /* LaunchScreen.storyboard */,
@@ -125,7 +160,7 @@
 			);
 			name = iOSInternDemo;
 			productName = iOSInternDemo;
-			productReference = 7BC137F9229B893D00C927D5 /* iOSInternDemo.app */;
+			productReference = 7BC137F9229B893D00C927D5 /* 练习生.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7BC13810229B893E00C927D5 /* iOSInternDemoUITests */ = {
@@ -191,6 +226,8 @@
 				7BC13809229B893D00C927D5 /* LaunchScreen.storyboard in Resources */,
 				7BC13806229B893D00C927D5 /* Assets.xcassets in Resources */,
 				7BC13804229B893D00C927D5 /* Main.storyboard in Resources */,
+				66374FAA22A75DC3003F43F0 /* QuizViewController.xib in Resources */,
+				66374FF322A8A8D3003F43F0 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC13801229B893D00C927D5 /* ViewController.m in Sources */,
+				66374FF222A8A8D3003F43F0 /* GameViewController.m in Sources */,
+				66374FA922A75DC3003F43F0 /* QuizViewController.m in Sources */,
 				7BC1380C229B893D00C927D5 /* main.m in Sources */,
 				7BC137FE229B893D00C927D5 /* AppDelegate.m in Sources */,
 				66374FA222A69785003F43F0 /* MyTableViewController.m in Sources */,
@@ -376,7 +414,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alibaba.iOSInternDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "练习生";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -392,7 +430,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alibaba.iOSInternDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "练习生";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

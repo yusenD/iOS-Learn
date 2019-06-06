@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "GameViewController.h"
 #import "MyTableViewController.h"
+#import "QuizViewController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
@@ -23,28 +24,28 @@
     
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     
-    ViewController *viewController = [[ViewController alloc] init];
-    viewController.tabBarItem.title = @"新闻";
+    GameViewController *viewController = [[GameViewController alloc] init];
+    viewController.tabBarItem.title = @"游戏";
     
     MyTableViewController *tableViewController = [[MyTableViewController alloc] init];
-    tableViewController.tabBarItem.title = @"视频";
+    tableViewController.tabBarItem.title = @"列表";
     
-    UIViewController *controller3 = [[UIViewController alloc] init];
-    controller3.view.backgroundColor = [UIColor greenColor];
-    controller3.tabBarItem.title = @"推荐";
+    QuizViewController *quizViewController = [[QuizViewController alloc] init];
+    quizViewController.tabBarItem.title = @"问答";
     
     UIViewController *controller4 = [[UIViewController alloc] init];
     controller4.view.backgroundColor = [UIColor whiteColor];
     controller4.tabBarItem.title = @"我的";
 
     
-    [tabbarController setViewControllers:@[viewController,tableViewController,controller3,controller4]];
+    [tabbarController setViewControllers:@[viewController,tableViewController,quizViewController,controller4]];
     
     tabbarController.delegate = self;
     
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
-
+    
+    navigationController.navigationItem.title = @"xx";
     
     self.window.rootViewController = navigationController;
     
