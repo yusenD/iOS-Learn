@@ -10,8 +10,10 @@
 		66374FA222A69785003F43F0 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FA122A69785003F43F0 /* MyTableViewController.m */; };
 		66374FA922A75DC3003F43F0 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FA722A75DC3003F43F0 /* QuizViewController.m */; };
 		66374FAA22A75DC3003F43F0 /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66374FA822A75DC3003F43F0 /* QuizViewController.xib */; };
-		66374FF222A8A8D3003F43F0 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FF022A8A8D3003F43F0 /* GameViewController.m */; };
-		66374FF322A8A8D3003F43F0 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66374FF122A8A8D3003F43F0 /* GameViewController.xib */; };
+		66374FF222A8A8D3003F43F0 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66374FF022A8A8D3003F43F0 /* TextViewController.m */; };
+		66374FF322A8A8D3003F43F0 /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66374FF122A8A8D3003F43F0 /* TextViewController.xib */; };
+		666CB23322ACAB1D007073E7 /* TextStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CB23122ACAB1D007073E7 /* TextStatsViewController.m */; };
+		666CB23422ACAB1D007073E7 /* TextStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 666CB23222ACAB1D007073E7 /* TextStatsViewController.xib */; };
 		7BC137FE229B893D00C927D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC137FD229B893D00C927D5 /* AppDelegate.m */; };
 		7BC13804229B893D00C927D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC13802229B893D00C927D5 /* Main.storyboard */; };
 		7BC13806229B893D00C927D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC13805229B893D00C927D5 /* Assets.xcassets */; };
@@ -36,9 +38,12 @@
 		66374FA622A75DC3003F43F0 /* QuizViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
 		66374FA722A75DC3003F43F0 /* QuizViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuizViewController.m; sourceTree = "<group>"; };
 		66374FA822A75DC3003F43F0 /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
-		66374FEF22A8A8D3003F43F0 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		66374FF022A8A8D3003F43F0 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		66374FF122A8A8D3003F43F0 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		66374FEF22A8A8D3003F43F0 /* TextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
+		66374FF022A8A8D3003F43F0 /* TextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
+		66374FF122A8A8D3003F43F0 /* TextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
+		666CB23022ACAB1D007073E7 /* TextStatsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextStatsViewController.h; sourceTree = "<group>"; };
+		666CB23122ACAB1D007073E7 /* TextStatsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextStatsViewController.m; sourceTree = "<group>"; };
+		666CB23222ACAB1D007073E7 /* TextStatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextStatsViewController.xib; sourceTree = "<group>"; };
 		7BC137F9229B893D00C927D5 /* 练习生.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "练习生.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC137FC229B893D00C927D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BC137FD229B893D00C927D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,14 +84,14 @@
 			path = TablePage;
 			sourceTree = "<group>";
 		};
-		66374FAC22A8A21F003F43F0 /* GamePage */ = {
+		66374FAC22A8A21F003F43F0 /* TextPage */ = {
 			isa = PBXGroup;
 			children = (
-				66374FEF22A8A8D3003F43F0 /* GameViewController.h */,
-				66374FF022A8A8D3003F43F0 /* GameViewController.m */,
-				66374FF122A8A8D3003F43F0 /* GameViewController.xib */,
+				66374FEF22A8A8D3003F43F0 /* TextViewController.h */,
+				66374FF022A8A8D3003F43F0 /* TextViewController.m */,
+				66374FF122A8A8D3003F43F0 /* TextViewController.xib */,
 			);
-			path = GamePage;
+			path = TextPage;
 			sourceTree = "<group>";
 		};
 		66374FEE22A8A6B7003F43F0 /* AnswerPage */ = {
@@ -97,6 +102,16 @@
 				66374FA822A75DC3003F43F0 /* QuizViewController.xib */,
 			);
 			path = AnswerPage;
+			sourceTree = "<group>";
+		};
+		666CB22F22ACAAF7007073E7 /* TextStatsPage */ = {
+			isa = PBXGroup;
+			children = (
+				666CB23022ACAB1D007073E7 /* TextStatsViewController.h */,
+				666CB23122ACAB1D007073E7 /* TextStatsViewController.m */,
+				666CB23222ACAB1D007073E7 /* TextStatsViewController.xib */,
+			);
+			path = TextStatsPage;
 			sourceTree = "<group>";
 		};
 		7BC137F0229B893D00C927D5 = {
@@ -120,8 +135,9 @@
 		7BC137FB229B893D00C927D5 /* iOSInternDemo */ = {
 			isa = PBXGroup;
 			children = (
+				666CB22F22ACAAF7007073E7 /* TextStatsPage */,
 				66374FEE22A8A6B7003F43F0 /* AnswerPage */,
-				66374FAC22A8A21F003F43F0 /* GamePage */,
+				66374FAC22A8A21F003F43F0 /* TextPage */,
 				66374FAB22A8A1F9003F43F0 /* TablePage */,
 				7BC137FC229B893D00C927D5 /* AppDelegate.h */,
 				7BC137FD229B893D00C927D5 /* AppDelegate.m */,
@@ -224,10 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC13809229B893D00C927D5 /* LaunchScreen.storyboard in Resources */,
+				666CB23422ACAB1D007073E7 /* TextStatsViewController.xib in Resources */,
 				7BC13806229B893D00C927D5 /* Assets.xcassets in Resources */,
 				7BC13804229B893D00C927D5 /* Main.storyboard in Resources */,
 				66374FAA22A75DC3003F43F0 /* QuizViewController.xib in Resources */,
-				66374FF322A8A8D3003F43F0 /* GameViewController.xib in Resources */,
+				66374FF322A8A8D3003F43F0 /* TextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66374FF222A8A8D3003F43F0 /* GameViewController.m in Sources */,
+				66374FF222A8A8D3003F43F0 /* TextViewController.m in Sources */,
+				666CB23322ACAB1D007073E7 /* TextStatsViewController.m in Sources */,
 				66374FA922A75DC3003F43F0 /* QuizViewController.m in Sources */,
 				7BC1380C229B893D00C927D5 /* main.m in Sources */,
 				7BC137FE229B893D00C927D5 /* AppDelegate.m in Sources */,

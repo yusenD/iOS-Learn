@@ -80,12 +80,14 @@
 ### 生命周期
 
 * init：初始化重载函数
-* viewDidLoad
-* viewWillAppear
-* viewDidAppear
-* viewWillDisappear
+* viewDidLoad：在 instantiation 和 outlet-setting 之后调用，很适合初始化代码，比init好，整个生命周期内只会被调用一次。但是，不能在这里添加任何关于视图形状的初始化信息。
+* viewWillAppear：当视图控制器的视图就要出现在屏幕上之前会调用，适合于视图不可见的时候可能改变的内容进行同步，比如Model等。需要注意，不要再这个方法里面添加一次性初始化内容，当视图重新在屏幕上显示的时候，这个方法会被再次调用。
+* viewDidAppear：加载完了之后调用
+* viewWillDisappear：当将要消失时候调用，可以停止动画等，停止耗费资源。
 * viewDidDisappear
 * Dealloc
+* viewWillLayoutSubview：比较适合几何的初始化，在第一次viewDidLoad之后或者横屏竖屏切换的时候会调用这个方法。
+* didReceviewMemoryWarning：当系统内存空间不足会收到，需要释放一些资源。
 
 ### 与UIView一起搭建APP
 
@@ -132,12 +134,16 @@
 * 通过栈管理页面间的跳转
 * 通常只展示栈顶页面
 * Push/Pop操作
-* 由ViewController和UINavigationBar组成
+* 由ViewController和UINavigationBar组成 
 
 ### UINavigationBar
 
 * UINavigationController管理
-* 顶部UIViewController变化，UINavigationBar则同步变化
+* 顶部UIViewController变化，UINavigationBar则同步变化，内容由嵌入式MVC的navigationItem决定
+* title
+* rightBarButtonItems可以放多个button，NSArry
+* Back Button
+* segue
 
 ```
 
@@ -153,8 +159,12 @@
 
 ```
 
-
 ![](https://i.loli.net/2019/06/03/5cf4dfe36900117683.jpg)
+
+### 方法
+弹出
+`[self.navigationController popViewControllerAnimated:YES]`
+
 
 ## UIWindow
 

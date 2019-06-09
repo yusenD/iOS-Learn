@@ -71,10 +71,6 @@ NSMutableArray *shopList = [NSMutableArray array];
 [shopList removeObject:shop1];
 ```
 
-### NSUserDefaults
-
-与SharedPreference类似。
-
 ### 类前缀
 
 比较好奇为什么每一个类前面都要加一个NS前缀，原来Objective-C与C++不同，本身没有命名空间，所以会出现这种情况：

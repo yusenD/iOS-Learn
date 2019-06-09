@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "GameViewController.h"
+#import "TextViewController.h"
 #import "MyTableViewController.h"
 #import "QuizViewController.h"
 
@@ -24,7 +24,7 @@
     
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     
-    GameViewController *viewController = [[GameViewController alloc] init];
+    TextViewController *viewController = [[TextViewController alloc] init];
     viewController.tabBarItem.title = @"游戏";
     
     MyTableViewController *tableViewController = [[MyTableViewController alloc] init];
