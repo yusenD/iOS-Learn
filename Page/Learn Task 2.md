@@ -8,6 +8,34 @@
 * 相应区域内的事件。
 * 布局和管理子视图。
 
+### 方法
+
+可以在添加和删除子View：
+
+```
+-(void) addSubview:(UIView *)aview;
+-(void) removeFromSuperview;
+```
+
+在UIViewController里面有一个属性，可以用self.view调用，是UIViewController的顶级UIView，可以看做一个容器，可以在里面增加别的View：
+```
+@property(nonatomic,strong) UIView *view;
+```
+
+在初始化的时候，可以使用`initWithFrame:aRect`方法。
+
+
+
+### 一些View坐标
+
+* CGFloat：屏幕上的点等全部用的是这个数字
+* CGPoint：有两个值x和y
+* CGSize：长和宽
+* CGRect：包含CGPoint和CGSize，屏幕的最左上角是(0,0)
+
+> CG是Core Graphics的缩写
+
+
 ### 布局
 
 * 设置大小、位置（frame）
@@ -33,6 +61,16 @@
 ```
 
 ![](https://i.loli.net/2019/06/03/5cf4798291ec298818.jpg)
+
+### 自定义绘制
+
+需要重写`drawRect`方法，但是不要调用，这个是系统进行调用的。如果想要触发重新绘制，可以调用`setNeedsDisplay`方法。
+
+步骤：
+* contex
+* 创建path，UIBezierPath
+* 颜色、线宽
+* 填充、描边
 
 ### 生命周期
 
@@ -163,7 +201,7 @@
 
 ### 方法
 弹出
-`[self.navigationController popViewControllerAnimated:YES]`
+`[self.navigationController popViewControllerAnimated:YES]`[]()
 
 
 ## UIWindow

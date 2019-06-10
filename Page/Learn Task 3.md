@@ -51,6 +51,43 @@ object:nil];
 
 
 
+## 手势识别
+
+UIGestureRecognizer：手势识别器，包括点击、捏合等等，是一个抽象类，无法实例化。
+
+举个例子🌰：
+
+```
+
+- (void)setPannableView:(UIView *)pannableView{
+    _pannableView = pannableView;
+    UIPanGestureRecongnizer *pangr = [[UIPanGestureRecognizer alloc] initWithTarget:pannableView action:@selector(pan:)];
+    [pannableView addGestureRecognizer:pangr];
+}
+
+```
+
+### 属性和方法
+
+以UIPanGestureRecognizer为例，提供了三个主要方法：
+
+```
+- (CGPoint)translationInView:(UIView *) aView; //触摸移动距离
+- (CGPoint)velocityInView:(UIView *) aView; //手指动的速度
+- (void)setTranslationg:(CGPoint)translation inView(UIView *)aView; //对移动距离重置
+```
+
+继承自UIGestureRecognizer，提供了下面的属性：
+
+```
+@property(readonly) UIGestureRecognizerState state; //继承属性，有Began,Changed,Ended等状态，和Android类似
+```
+
+
+
+
+
+
 
 ## 持久化：NSUserDefaults
 

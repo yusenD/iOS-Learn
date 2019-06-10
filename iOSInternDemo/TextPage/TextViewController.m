@@ -24,7 +24,8 @@
 }
 
 - (IBAction)outLineSelectionButton:(UIButton *)sender {
-    [self.body.textStorage addAttributes:@{NSStrokeColorAttributeName:self.body.textColor,NSStrokeWidthAttributeName:@-3} range:self.body.selectedRange];
+    if(self.body.textColor) [self.body.textStorage addAttributes:@{NSStrokeColorAttributeName:self.body.textColor,NSStrokeWidthAttributeName:@-3} range:self.body.selectedRange];
+    
 }
 
 - (IBAction)unOutLineSelectionButton:(UIButton *)sender {
