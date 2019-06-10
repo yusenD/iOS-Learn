@@ -60,7 +60,7 @@
 
 ```
 
-![](https://i.loli.net/2019/06/03/5cf4798291ec298818.jpg)
+![图片1](https://i.loli.net/2019/06/03/5cf4798291ec298818.jpg)
 
 ### 自定义绘制
 
@@ -113,7 +113,7 @@
 * 和APP整体交互，视图切换
 * 作为一个container管理多个Controller和动画
 
-![](https://i.loli.net/2019/06/03/5cf47ed987d1e88847.jpg)
+![图片2](https://i.loli.net/2019/06/03/5cf47ed987d1e88847.jpg)
 
 ### 生命周期
 
@@ -215,7 +215,7 @@
   * makeKeyAndVisible
 
   
-  ![](https://i.loli.net/2019/06/04/5cf5c53f18f3461708.jpg)
+  ![图片3](https://i.loli.net/2019/06/04/5cf5c53f18f3461708.jpg)
 
 ## UITabView
 
