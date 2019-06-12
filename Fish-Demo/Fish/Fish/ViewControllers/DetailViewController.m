@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import <Masonry/Masonry.h>
 
 @interface DetailViewController ()
 
@@ -16,8 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.backBarButtonItem.tintColor = [UIColor blackColor];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = self.goodsModel.title;
+    
+    UILabel *goods = [[UILabel alloc] init];
+    [self.view addSubview:goods];
+    
+    [goods mas_makeConstraints:^(MASConstraintMaker *make){
+        make.center.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(200, 200));
+    }];
+    goods.text = self.goodsModel.goods;
+    goods.numberOfLines = 3;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

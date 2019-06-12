@@ -1,0 +1,4 @@
+platform:ios,'8.0'
+target "fish" do
+pod 'Masonry'
+end

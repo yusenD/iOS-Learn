@@ -89,7 +89,7 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
     cell.titleLabel.text = [NSString stringWithFormat:@"闲鱼商品%@号",@(indexPath.row+1)];
-    cell.descriptionLabel.text = [NSString stringWithFormat:@"来闲鱼1234天了，卖出过1234件宝贝。现居山西太原。70后h双子座女生"];
+    cell.descriptionLabel.text = [NSString stringWithFormat:@"来闲鱼1234天了，卖出过1234件宝贝。现居山西太原。70后双子座女生。"];
     cell.idLabel.text = [NSString stringWithFormat:@"实人认证已通过"];
     cell.creditLabel.text = [NSString stringWithFormat:@"芝麻信用已授权"];
     cell.headImageView.image = [UIImage imageNamed:@"AppIcon"];
@@ -102,8 +102,11 @@
     //取消选中
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     DetailViewController *detailVC = [[DetailViewController alloc] init];
-    detailVC.title = [NSString stringWithFormat:@"%@",@(indexPath.row)];
-    detailVC.view.backgroundColor = grayColor;
+    GoodsModel *model = [[GoodsModel alloc] init];
+    model.title = [NSString stringWithFormat:@"闲鱼商品%@号",@(indexPath.row+1)];
+    //这里最好是一个NSArray，根据indexPath来获取
+    model.goods = [NSString stringWithFormat:@"来闲鱼1234天了，卖出过1234件宝贝。现居山西太原。70后双子座女生。"];
+    detailVC.goodsModel = model;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

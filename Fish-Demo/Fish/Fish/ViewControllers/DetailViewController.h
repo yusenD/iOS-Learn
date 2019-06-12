@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "../Models/GoodsModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailViewController : UIViewController
+@property(nonatomic,strong) GoodsModel *goodsModel;
 
 @end
 
