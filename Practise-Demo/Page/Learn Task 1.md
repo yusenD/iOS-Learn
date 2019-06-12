@@ -340,11 +340,17 @@ Cocoa中有一个自动释放池（Auto Release Pool）的概念，在`main`函�
 
 
 > 参考资料：
+> 
 > Objective-C 编程（第二版）
+> 
 > Objective-C 基础教程
+> 
 > 循环引用图来自：https://juejin.im/entry/58480bd4128fe10058bf1a3a
+> 
 > https://github.com/qinjx/30min_guides/blob/master/ios.md
+> 
 > https://stackoverflow.com/questions/8927727/objective-c-arc-strong-vs-retain-and-weak-vs-assign
+> 
 > https://stackoverflow.com/questions/626898/how-do-i-create-delegates-in-objective-c
 
 
