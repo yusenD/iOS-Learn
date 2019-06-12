@@ -16,8 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"鱼塘";
     self.view.backgroundColor = [UIColor whiteColor];
-
+    UITableView *table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self.view addSubview:table];
     // Do any additional setup after loading the view.
 }
 

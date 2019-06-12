@@ -31,15 +31,19 @@
     HomeViewController *home = [[HomeViewController alloc] init];
     UINavigationController *navHome = [[UINavigationController alloc] initWithRootViewController:home];
     navHome.navigationBar.barTintColor = fishColor;
+    [navHome.navigationBar setShadowImage:[UIImage new]];
     
     PoundViewController *pound = [[PoundViewController alloc] init];
         UINavigationController *navPound = [[UINavigationController alloc] initWithRootViewController:pound];
+    navPound.navigationBar.barTintColor = fishColor;
     
     MsgViewController *msg = [[MsgViewController alloc] init];
         UINavigationController *navMsg = [[UINavigationController alloc] initWithRootViewController:msg];
+    navMsg.navigationBar.barTintColor = fishColor;
     
     UserViewController *user = [[UserViewController alloc] init];
         UINavigationController *navUser = [[UINavigationController alloc] initWithRootViewController:user];
+    navUser.navigationBar.barTintColor = fishColor;
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = @[navHome,navPound,navMsg,navUser];
@@ -63,7 +67,7 @@
     userItem.title = @"我的";
     userItem.image = [UIImage imageNamed:@"tabbar-user"];
     
-    
+    self.window.tintColor = [UIColor blackColor];
     self.window.rootViewController=tabBarController;
 
     

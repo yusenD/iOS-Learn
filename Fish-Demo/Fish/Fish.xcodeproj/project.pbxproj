@@ -19,6 +19,8 @@
 		6654FA0C22AF990A00618C18 /* MsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6654FA0B22AF990A00618C18 /* MsgViewController.m */; };
 		6654FA0F22AF992F00618C18 /* PoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6654FA0E22AF992F00618C18 /* PoundViewController.m */; };
 		6654FA1522AFF56400618C18 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6654FA1422AFF56400618C18 /* DetailViewController.m */; };
+		667DE9D422B0D9A8006FF5EA /* GoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 667DE9D322B0D9A8006FF5EA /* GoodsTableViewCell.m */; };
+		66B2ADCD22B0EEFD008401E0 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B2ADCC22B0EEFD008401E0 /* GoodsModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,10 @@
 		6654FA1222AFACDD00618C18 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		6654FA1322AFF56400618C18 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		6654FA1422AFF56400618C18 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		667DE9D222B0D9A8006FF5EA /* GoodsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsTableViewCell.h; sourceTree = "<group>"; };
+		667DE9D322B0D9A8006FF5EA /* GoodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsTableViewCell.m; sourceTree = "<group>"; };
+		66B2ADCB22B0EEFD008401E0 /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
+		66B2ADCC22B0EEFD008401E0 /* GoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +173,8 @@
 		6654FA0222AF98BD00618C18 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				667DE9D222B0D9A8006FF5EA /* GoodsTableViewCell.h */,
+				667DE9D322B0D9A8006FF5EA /* GoodsTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +182,8 @@
 		6654FA0322AF98C400618C18 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				66B2ADCB22B0EEFD008401E0 /* GoodsModel.h */,
+				66B2ADCC22B0EEFD008401E0 /* GoodsModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,7 +331,9 @@
 				6654FA0F22AF992F00618C18 /* PoundViewController.m in Sources */,
 				6654F9DF22AF94D400618C18 /* main.m in Sources */,
 				6654F9D122AF94D200618C18 /* AppDelegate.m in Sources */,
+				66B2ADCD22B0EEFD008401E0 /* GoodsModel.m in Sources */,
 				6654FA0622AF98E300618C18 /* HomeViewController.m in Sources */,
+				667DE9D422B0D9A8006FF5EA /* GoodsTableViewCell.m in Sources */,
 				6654FA1522AFF56400618C18 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
