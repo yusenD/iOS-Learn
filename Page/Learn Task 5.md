@@ -289,7 +289,23 @@ BOOL sel_isEqual ( SEL lhs, SEL rhs );
 ```
 objc_msgSend(receiver,selector,arg1,arg2....)
 ```
-这个函数完成了动态绑定的所有事情。
+这个函数完成了动态绑定的所有事情：
+
+* 找到`selector`对应的方法实现
+* 调用方法实现，并将接受者对象及方法的所有参数传给它
+* 最后它将实现返回的值作为自己的返回值
+
+在消息发送的时候，`objc_class`中的`superclass`与`methodLists`发挥了重要作用。经历了下面的几个过程：
+
+* `objc_msgSend`通过对象的`isa`指针获取到类的结构体，然后在`methodLists`里面查找方法的`selector`
+* 如果没有找到则通过指向父类的指针找到其父类，并在父类的`methodLists`里面查找方法的`selector`，如果仍然没有找到重复执行这个过程
+* 找到`selector`之后，函数就获取到了实现的入口点，并传入相应的参数来执行方法的具体实现，系统会缓存使用过的`selector`和对应方法的地址。
+* 如果最后灭有找到，那么执行**消息转发**流程。
+
+
+
+### 消息转发
+
 
 
 
