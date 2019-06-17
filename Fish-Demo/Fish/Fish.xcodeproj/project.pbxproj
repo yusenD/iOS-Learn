@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6643F5CD22B7A28C003D01D9 /* UIViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 6643F5CC22B7A28C003D01D9 /* UIViewController+Swizzling.m */; };
 		6654F9D122AF94D200618C18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6654F9D022AF94D200618C18 /* AppDelegate.m */; };
 		6654F9D722AF94D200618C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6654F9D522AF94D200618C18 /* Main.storyboard */; };
 		6654F9D922AF94D400618C18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6654F9D822AF94D400618C18 /* Assets.xcassets */; };
@@ -45,6 +46,8 @@
 		1A652A5BEEB8CE214D7DEA58 /* Pods-fish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fish.release.xcconfig"; path = "Target Support Files/Pods-fish/Pods-fish.release.xcconfig"; sourceTree = "<group>"; };
 		2D8ADFEB344C0C6B65B91C38 /* Pods-fish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fish.debug.xcconfig"; path = "Target Support Files/Pods-fish/Pods-fish.debug.xcconfig"; sourceTree = "<group>"; };
 		55B647CFFA88A281A4888BAF /* libPods-fish.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fish.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6643F5CB22B7A28C003D01D9 /* UIViewController+Swizzling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Swizzling.h"; sourceTree = "<group>"; };
+		6643F5CC22B7A28C003D01D9 /* UIViewController+Swizzling.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Swizzling.m"; sourceTree = "<group>"; };
 		6654F9CC22AF94D200618C18 /* fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6654F9CF22AF94D200618C18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6654F9D022AF94D200618C18 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				6654FA1222AFACDD00618C18 /* AppConfig.h */,
+				6643F5CB22B7A28C003D01D9 /* UIViewController+Swizzling.h */,
+				6643F5CC22B7A28C003D01D9 /* UIViewController+Swizzling.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -209,7 +214,6 @@
 				2D8ADFEB344C0C6B65B91C38 /* Pods-fish.debug.xcconfig */,
 				1A652A5BEEB8CE214D7DEA58 /* Pods-fish.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -383,6 +387,7 @@
 				6654F9DF22AF94D400618C18 /* main.m in Sources */,
 				6654F9D122AF94D200618C18 /* AppDelegate.m in Sources */,
 				66B2ADCD22B0EEFD008401E0 /* GoodsModel.m in Sources */,
+				6643F5CD22B7A28C003D01D9 /* UIViewController+Swizzling.m in Sources */,
 				6654FA0622AF98E300618C18 /* HomeViewController.m in Sources */,
 				667DE9D422B0D9A8006FF5EA /* GoodsTableViewCell.m in Sources */,
 				6654FA1522AFF56400618C18 /* DetailViewController.m in Sources */,
