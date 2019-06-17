@@ -1,11 +1,11 @@
------- 高级篇 (5天)做部分优化
+做部分优化
 
-NSObject、Class内部结构、
-SEL和IMP、
-消息转发、
-Method Swizzling
-内存优化
-Objective-C的RunTime
+* NSObject、Class内部结构、
+* SEL和IMP、
+* 消息转发、
+* Method Swizzling
+* 内存优化
+* Objective-C的RunTime
 
 ## Runtime基本概念
 
@@ -100,7 +100,7 @@ typedef struct objc_object *id;
 
 在唐巧大神的博客里面看到这张图，很好的总结了上面的几点内容。
 
-![](media/15605009747159.jpg)
+![来自唐巧大大的博客](https://i.loli.net/2019/06/17/5d06f31a01e4f15922.jpg)
 
 
 ### 扩展：runtime动态创建类和对象
@@ -300,11 +300,183 @@ objc_msgSend(receiver,selector,arg1,arg2....)
 * `objc_msgSend`通过对象的`isa`指针获取到类的结构体，然后在`methodLists`里面查找方法的`selector`
 * 如果没有找到则通过指向父类的指针找到其父类，并在父类的`methodLists`里面查找方法的`selector`，如果仍然没有找到重复执行这个过程
 * 找到`selector`之后，函数就获取到了实现的入口点，并传入相应的参数来执行方法的具体实现，系统会缓存使用过的`selector`和对应方法的地址。
-* 如果最后灭有找到，那么执行**消息转发**流程。
-
-
+* 如果最后没有找到，那么执行**消息转发**流程。
 
 ### 消息转发
+
+当一个对象能接受一个消息的时候，就按上面的流程走；但是如果一个对象没有办法接受这个消息的时候，会发生下面的事情：
+* 如果[obj msg]这样的方式调用，编译器会报错
+* 如果以`performSelector`方式调用的话，需要等到运行的时候才能确定`obj`能不能接受消息，如果不能程序崩溃，由`doesNotRecognizeSelector`方法抛出异常
+
+不过，我们可以利用消息转发机制来避免程序的崩溃。
+
+消息转发机制基本分为下面三个步骤：
+* 动态方法解析
+* 备用接受者
+* 完整转发
+
+下面详细看一下这三个步骤。
+
+#### 动态方法解析
+
+对象在接收到位置方法时，首先会调用所属类的类方法`+resolveInstanceMethod`或者`+resolveClassMethod`，在这个方法中，我们可以为这个位置消息新增一个处理方法，不过前提是我们已经实现了这个处理方法，只需要在运行的时候通过`class_addMethod`函数动态添加到类里面就可以了。
+
+```
+void functionForMethod1(id self, SEL _cmd) {
+   NSLog(@"%@, %p", self, _cmd);
+}
+	
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    NSString *selectorString = NSStringFromSelector(sel);
+    if ([selectorString isEqualToString:@"method1"]) {
+        class_addMethod(self.class, @selector(method1), (IMP)functionForMethod1, "@:");
+    }
+    return [super resolveInstanceMethod:sel];
+}
+```
+
+#### 备用接收者
+
+如果在上一步无法处理消息的话，Runtime会继续调用`-(id)forwardingTargetForSelector:(SEL)aSelector`如果一个对象实现了这个方法并且返回了一个非nil的结果，那么这个对象会作为消息的新接受者，由此也可以看出来，不能返回  `self`哦。
+举个例子🌰
+有一个`MethodHelper`
+```
+@interface RuntimeMethodHelper : NSObject
+- (void)method2;
+@end
+@implementation RuntimeMethodHelper
+- (void)method2 {
+    NSLog(@"%@, %p", self, _cmd);
+}
+```
+然后是正文：
+```
+@interface RuntimeMethod () {
+    SUTRuntimeMethodHelper *_helper;
+}
+@end
+@implementation RuntimeMethod
++ (instancetype)object {
+    return [[self alloc] init];
+}
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        _helper = [[RuntimeMethodHelper alloc] init];
+    }
+    return self;
+}
+- (void)test {
+    [self performSelector:@selector(method2)];
+}
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    NSLog(@"forwardingTargetForSelector");
+    NSString *selectorString = NSStringFromSelector(aSelector);
+    // 将消息转发给_helper来处理
+    if ([selectorString isEqualToString:@"method2"]) {
+        return _helper;
+    }
+    return [super forwardingTargetForSelector:aSelector];
+}
+@end
+```
+
+#### 完整消息转发
+
+如果在上一步还不能处理未知消息，只能用完整的消息转发机制处理
+`
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+`
+运行的时候，系统会在这一步给消息接受者最后一次机会将消息转发给其他对象。对象会创建一个表示消息的`NSInvocation`对象，把与尚未处理的消息有关的全部细节都封装在`anInvocation`中，包括`selector`，目标（`target`）和参数。我们可以在`forwardInvocation`方法中选择将消息转发给其他对象。
+
+`forwardInvocation`方法的实现有两个任务：
+* 定位可以响应封装在`anInvocation`中的消息的对象。这个对象不需要能处理所有位置消息。
+* 使用`anInvocation`作为参数，将消息发送到选中的对象。`anInvocation`将会保留调用结果，运行时系统会提取这一结果并将其发送到消息的原始发送者。
+
+举个例子🌰：
+先需要重写一下`methodSignatureForSelector`，消息转发机制会使用从这个方法中获取的信息来创建`NSInvocation`对象。
+```
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    if (!signature) {
+        if ([RuntimeMethodHelper instancesRespondToSelector:aSelector]) {
+            signature = [RuntimeMethodHelper instanceMethodSignatureForSelector:aSelector];
+        }
+    }
+    return signature;
+}
+```
+然后重写`forwardInvocation`
+```
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    if ([RuntimeMethodHelper instancesRespondToSelector:anInvocation.selector]) {
+        [anInvocation invokeWithTarget:_helper];
+    }
+}
+```
+
+### 再看消息转发
+
+其实分析了这三点以后，再回过头来看整个消息转发机制的第二步和第三步，我们可以发现，用这两个方法，可以让一个对象和其他的对象建立关系，让其他对象来处理一些消息，而表面上仍然是这个对象在处理。这样来看，我们就可以模拟多重继承，让对象可以“继承”其他对象的特性来处理一些消息。
+
+## Method Swizzling
+
+swizzling是来自鸡尾酒搅拌的动作，`Method Swizzling`是改变一个`selector`的实际实现的技术。通过这一技术，我们可以在运行的时候通过修改类的分发表中`selector`对应的函数，来修改方法的实现。
+
+由于`Mothod Swizzling`会影响到累的全局状态，所以我们需要避免并发竞争的情况。所以`Swizzling`应该在`+load`方法（或`+initialize`方法？）中执行，而且需要保证原子性，代码只被执行一次，GCD的`dispatch_once`就可以确保这一点。
+
+> `+load`方法会在类初始加载的时候调用，`+initialize`会在第一次调用类的类方法或实例方法之前被调用。
+
+举个例子🌰：
+
+```
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class class = [self class];         
+        // When swizzling a class method, use the following:
+        // Class class = object_getClass((id)self);
+        SEL originalSelector = @selector(viewWillAppear:);
+        SEL swizzledSelector = @selector(xxx_viewWillAppear:);
+        Method originalMethod = class_getInstanceMethod(class, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+        BOOL didAddMethod = class_addMethod(class,
+                originalSelector,
+                method_getImplementation(swizzledMethod),
+                method_getTypeEncoding(swizzledMethod));
+        if (didAddMethod) {
+            class_replaceMethod(class,
+                swizzledSelector,
+                method_getImplementation(originalMethod),
+                method_getTypeEncoding(originalMethod));
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod);
+        }
+    });
+}
+#pragma mark - Method Swizzling
+- (void)xxx_viewWillAppear:(BOOL)animated {
+    [self xxx_viewWillAppear:animated];
+    NSLog(@"viewWillAppear: %@", NSStringFromClass([self class]));
+}
+```
+
+### 内存管理
+
+偷个懒= = [直接贴链接吧，总结的很全面](https://blog.csdn.net/ycm1101743158/article/details/77508192)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
